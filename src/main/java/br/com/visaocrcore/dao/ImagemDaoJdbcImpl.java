@@ -96,7 +96,7 @@ public class ImagemDaoJdbcImpl implements ImagemDao {
 			dadosNota.getCoo(),
 			dadosNota.getCnpj(),
 			dadosNota.getStatusNota().getStatus(),
-			LocalDate.now(),
+			dataNota,
 			resultadoAnalise,
 			imagem.getCaminhoDestino(),
 			imagem.getId()
