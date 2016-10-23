@@ -86,20 +86,20 @@ public class ImagemDaoJdbcImpl implements ImagemDao {
 			valor = nf.parse(dadosNota.getValorTotal());
 			dataNota = LocalDate.from(data);
 		} catch (ParseException e) {
-			LOGGER.error("Erro no parse do valor da nota.", e);
+			LOGGER.warn("Nao foi possivel formatar o valor: "+e.getMessage());
 		} catch (DateTimeParseException e) {
-			LOGGER.error("Erro no parse da data da nota.", e);
+			LOGGER.warn("Nao foi possivel formatar a data da nota: "+e.getMessage());
 		}
 
 		Object [] params = {
-				valor,
-				dadosNota.getCoo(),
-				dadosNota.getCnpj(),
-				dadosNota.getStatusNota().getStatus(),
-				dataNota,
-				resultadoAnalise,
-				imagem.getCaminhoDestino(),
-				imagem.getId()
+			valor,
+			dadosNota.getCoo(),
+			dadosNota.getCnpj(),
+			dadosNota.getStatusNota().getStatus(),
+			LocalDate.now(),
+			resultadoAnalise,
+			imagem.getCaminhoDestino(),
+			imagem.getId()
 		};
 
 		this.jdbcTemplate.update(sql.toString(), params);
