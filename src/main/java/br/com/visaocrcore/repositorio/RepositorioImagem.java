@@ -11,5 +11,7 @@ public interface RepositorioImagem {
 	 List<Imagem> listarImagensPendentes();
 	 
 	 void atualizarImagem(Imagem imagem, String textoResultado, DadosNota dadosNota);
-	
+	 
+	 
+	 
 }
